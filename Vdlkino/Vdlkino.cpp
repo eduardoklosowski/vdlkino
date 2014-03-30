@@ -31,6 +31,8 @@ uint16_t VdlkinoBlock::run() {
     switch (this->oper) {
         case 0x0000:
             return this->digitalPins();
+        case 0x0001:
+            return this->analogPins();
         default:
             return 0x8002;
     }
