@@ -9,7 +9,18 @@
 #include <Arduino.h>
 #include <inttypes.h>
 
+class Vdlkino;
 class VdlkinoBlock;
+
+class Vdlkino {
+public:
+    uint8_t digital;
+    uint8_t analog;
+    uint8_t *pin_mode;
+    uint8_t *pin_auto;
+    Vdlkino(uint8_t digital, uint8_t analog);
+    ~Vdlkino();
+};
 
 class VdlkinoBlock {
 public:
