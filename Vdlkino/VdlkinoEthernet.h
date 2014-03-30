@@ -13,7 +13,9 @@
 class VdlkinoEthernet: public Vdlkino {
 public:
     EthernetServer *server;
+    EthernetClient *client;
     VdlkinoEthernet(uint8_t digital, uint8_t analog, EthernetServer *server);
+    virtual VdlkinoBlock getBlock();
 };
 
 #endif
