@@ -89,3 +89,13 @@ void VdlkinoEthernet::replay(uint16_t value) {
         this->client->print(value);
     }
 }
+
+void VdlkinoEthernet::run() {
+    VdlkinoBlock block = this->getBlock();
+    if (block.valid) {
+        this->replay(block.run());
+    } else {
+        this->replay(0x8000);
+    }
+    this->client->stop();
+}
