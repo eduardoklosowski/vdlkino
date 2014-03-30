@@ -85,3 +85,13 @@ uint16_t VdlkinoBlock::setPinMode() {
             return 0x8004;
     }
 }
+
+uint16_t VdlkinoBlock::getPinMode() {
+    if (!this->checkDigitalPin()) {
+        return 0x8003;
+    }
+    if (this->vdlkino->pin_auto[this->pin]) {
+        return VDLKINO_AUTO;
+    }
+    return this->vdlkino->pin_mode[this->pin];
+}

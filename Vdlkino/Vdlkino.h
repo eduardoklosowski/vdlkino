@@ -50,6 +50,7 @@ public:
     uint16_t digitalPins();
     uint16_t analogPins();
     uint16_t setPinMode();
+    uint16_t getPinMode();
 };
 
 #endif
