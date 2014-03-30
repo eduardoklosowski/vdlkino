@@ -30,3 +30,7 @@ VdlkinoBlock::VdlkinoBlock(Vdlkino *vdlkino) {
 uint16_t VdlkinoBlock::run() {
     return 0x8002;
 }
+
+uint16_t VdlkinoBlock::digitalPins() {
+    return this->vdlkino->digital;
+}
