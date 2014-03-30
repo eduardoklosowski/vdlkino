@@ -22,6 +22,7 @@ public:
     uint8_t *pin_auto;
     Vdlkino(uint8_t digital, uint8_t analog);
     ~Vdlkino();
+    virtual VdlkinoBlock getBlock();
 };
 
 class VdlkinoBlock {

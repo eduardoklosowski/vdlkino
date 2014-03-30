@@ -22,6 +22,11 @@ Vdlkino::~Vdlkino() {
     free(this->pin_mode);
 }
 
+VdlkinoBlock Vdlkino::getBlock() {
+    VdlkinoBlock block(this);
+    return block;
+}
+
 VdlkinoBlock::VdlkinoBlock(Vdlkino *vdlkino) {
     this->vdlkino = vdlkino;
     this->valid = 0;
