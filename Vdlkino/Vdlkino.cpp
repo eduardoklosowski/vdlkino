@@ -160,3 +160,10 @@ uint16_t VdlkinoBlock::getAnalog() {
     }
     return analogRead(this->pin);
 }
+
+VdlkinoOperCustom::VdlkinoOperCustom(uint16_t oper,
+                                     uint16_t (*run)(VdlkinoBlock*)) {
+    this->oper = oper;
+    this->run = run;
+    this->next = NULL;
+}

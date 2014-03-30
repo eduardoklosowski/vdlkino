@@ -13,6 +13,7 @@
 
 class Vdlkino;
 class VdlkinoBlock;
+class VdlkinoOperCustom;
 
 class Vdlkino {
 public:
@@ -58,6 +59,14 @@ public:
     uint16_t getDigital();
     uint16_t setAnalog();
     uint16_t getAnalog();
+};
+
+class VdlkinoOperCustom {
+public:
+    uint16_t oper;
+    uint16_t (*run) (VdlkinoBlock*);
+    VdlkinoOperCustom *next;
+    VdlkinoOperCustom(uint16_t oper, uint16_t (*run)(VdlkinoBlock*));
 };
 
 #endif
