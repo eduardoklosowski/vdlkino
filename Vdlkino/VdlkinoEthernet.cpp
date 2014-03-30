@@ -74,3 +74,18 @@ VdlkinoBlock VdlkinoEthernet::getBlock() {
     }
     return block;
 }
+
+void VdlkinoEthernet::replay(uint16_t value) {
+    if (this->client->connected()) {
+        this->client->print("HTTP/1.1 ");
+        if (!(value & 0x8000)) {
+            this->client->println("200 OK");
+        } else {
+            this->client->println("406 Not Acceptable");
+        }
+        this->client->println("Content-Type: text/plain");
+        this->client->println("Connection: close");
+        this->client->println();
+        this->client->print(value);
+    }
+}
