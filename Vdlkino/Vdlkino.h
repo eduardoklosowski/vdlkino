@@ -42,6 +42,7 @@ public:
         };
     };
     VdlkinoBlock(Vdlkino *vdlkino);
+    uint16_t run();
 };
 
 #endif

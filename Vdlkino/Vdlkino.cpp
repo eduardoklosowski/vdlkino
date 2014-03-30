@@ -26,3 +26,7 @@ VdlkinoBlock::VdlkinoBlock(Vdlkino *vdlkino) {
     this->vdlkino = vdlkino;
     this->valid = 0;
 }
+
+uint16_t VdlkinoBlock::run() {
+    return 0x8002;
+}
