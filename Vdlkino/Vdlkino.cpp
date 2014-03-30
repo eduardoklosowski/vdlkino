@@ -113,3 +113,16 @@ uint16_t VdlkinoBlock::setDigital() {
     digitalWrite(this->pin, this->value);
     return 0x0000;
 }
+
+uint16_t VdlkinoBlock::getDigital() {
+    if (!this->checkDigitalPin()) {
+        return 0x8003;
+    }
+    if (this->vdlkino->pin_mode[this->pin] != INPUT) {
+        if (this->vdlkino->pin_auto[this->pin]) {
+            this->vdlkino->pin_mode[this->pin] = INPUT;
+            pinMode(this->pin, INPUT);
+        }
+    }
+    return digitalRead(this->pin);
+}
