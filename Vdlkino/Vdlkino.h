@@ -24,6 +24,7 @@ public:
     ~Vdlkino();
     virtual VdlkinoBlock getBlock();
     virtual void reply(uint16_t value);
+    virtual void run();
 };
 
 class VdlkinoBlock {

@@ -31,6 +31,10 @@ void Vdlkino::reply(uint16_t value) {
     return;
 }
 
+void Vdlkino::run() {
+    return;
+}
+
 VdlkinoBlock::VdlkinoBlock(Vdlkino *vdlkino) {
     this->vdlkino = vdlkino;
     this->valid = 0;
