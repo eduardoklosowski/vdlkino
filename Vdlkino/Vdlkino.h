@@ -24,6 +24,7 @@ public:
 
 class VdlkinoBlock {
 public:
+    Vdlkino *vdlkino;
     boolean valid;
     union {
         uint16_t oper;
@@ -40,7 +41,7 @@ public:
             uint8_t valueh;
         };
     };
-    VdlkinoBlock();
+    VdlkinoBlock(Vdlkino *vdlkino);
 };
 
 #endif
