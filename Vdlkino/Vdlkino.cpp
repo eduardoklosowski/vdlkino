@@ -138,3 +138,10 @@ uint16_t VdlkinoBlock::setAnalog() {
     analogWrite(this->pin, this->value);
     return 0x0000;
 }
+
+uint16_t VdlkinoBlock::getAnalog() {
+    if (!this->checkAnalogPin()) {
+        return 0x8003;
+    }
+    return analogRead(this->pin);
+}
