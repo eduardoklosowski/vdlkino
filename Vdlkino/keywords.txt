@@ -8,6 +8,7 @@
 
 Vdlkino	KEYWORD1
 VdlkinoBlock	KEYWORD1
+VdlkinoSerial	KEYWORD1
 
 #######################################
 # Methods and Functions (KEYWORD2)
@@ -24,6 +25,8 @@ setDigital	KEYWORD2
 getDigital	KEYWORD2
 setAnalog	KEYWORD2
 getAnalog	KEYWORD2
+getBlock	KEYWORD2
+replay	KEYWORD2
 
 #######################################
 # Constants (LITERAL1)
