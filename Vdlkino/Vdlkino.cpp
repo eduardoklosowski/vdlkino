@@ -49,6 +49,8 @@ uint16_t VdlkinoBlock::run() {
             return this->setDigital();
         case 0x0005:
             return this->getDigital();
+        case 0x0006:
+            return this->setAnalog();
         default:
             return 0x8002;
     }
