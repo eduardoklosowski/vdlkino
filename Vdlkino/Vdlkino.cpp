@@ -12,6 +12,9 @@ Vdlkino::Vdlkino(uint8_t digital, uint8_t analog) {
     this->analog = analog;
     this->pin_mode = (uint8_t*) calloc(this->digital, 8);
     this->pin_auto = (uint8_t*) calloc(this->digital, 8);
+    for (int i = 0; i < digital; i++) {
+        this->pin_auto[i] = 1;
+    }
 }
 
 Vdlkino::~Vdlkino() {
