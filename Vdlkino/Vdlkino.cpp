@@ -15,6 +15,7 @@ Vdlkino::Vdlkino(uint8_t digital, uint8_t analog) {
     for (int i = 0; i < digital; i++) {
         this->pin_auto[i] = 1;
     }
+    this->oper_custom = NULL;
 }
 
 Vdlkino::~Vdlkino() {
@@ -33,6 +34,18 @@ void Vdlkino::reply(uint16_t value) {
 
 void Vdlkino::run() {
     return;
+}
+
+void Vdlkino::addOperCustom(VdlkinoOperCustom *oper_custom) {
+    if (this->oper_custom == NULL) {
+        this->oper_custom = oper_custom;
+        return;
+    }
+    VdlkinoOperCustom *custom = this->oper_custom;
+    while (custom->next != NULL) {
+        custom = custom->next;
+    }
+    custom->next = oper_custom;
 }
 
 VdlkinoBlock::VdlkinoBlock(Vdlkino *vdlkino) {

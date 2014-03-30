@@ -21,11 +21,13 @@ public:
     uint8_t analog;
     uint8_t *pin_mode;
     uint8_t *pin_auto;
+    VdlkinoOperCustom *oper_custom;
     Vdlkino(uint8_t digital, uint8_t analog);
     ~Vdlkino();
     virtual VdlkinoBlock getBlock();
     virtual void reply(uint16_t value);
     virtual void run();
+    virtual void addOperCustom(VdlkinoOperCustom *oper_custom);
 };
 
 class VdlkinoBlock {
