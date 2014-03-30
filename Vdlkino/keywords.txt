@@ -9,6 +9,7 @@
 Vdlkino	KEYWORD1
 VdlkinoBlock	KEYWORD1
 VdlkinoSerial	KEYWORD1
+VdlkinoEthernet	KEYWORD1
 
 #######################################
 # Methods and Functions (KEYWORD2)
