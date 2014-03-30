@@ -41,6 +41,8 @@ uint16_t VdlkinoBlock::run() {
             return this->digitalPins();
         case 0x0001:
             return this->analogPins();
+        case 0x0002:
+            return this->setPinMode();
         default:
             return 0x8002;
     }
