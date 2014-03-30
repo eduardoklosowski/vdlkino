@@ -1,0 +1,32 @@
+#######################################
+# Syntax Coloring Map For Vdlkino
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+Vdlkino	KEYWORD1
+VdlkinoBlock	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+checkDigitalPin	KEYWORD2
+checkAnalogPin	KEYWORD2
+run	KEYWORD2
+digitalPins	KEYWORD2
+analogPins	KEYWORD2
+setPinMode	KEYWORD2
+getPinMode	KEYWORD2
+setDigital	KEYWORD2
+getDigital	KEYWORD2
+setAnalog	KEYWORD2
+getAnalog	KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+
+VDLKINO_AUTO	LITERAL1
