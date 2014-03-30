@@ -44,6 +44,7 @@ public:
     VdlkinoBlock(Vdlkino *vdlkino);
     uint16_t run();
     uint16_t digitalPins();
+    uint16_t analogPins();
 };
 
 #endif

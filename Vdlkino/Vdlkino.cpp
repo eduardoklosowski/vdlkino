@@ -39,3 +39,7 @@ uint16_t VdlkinoBlock::run() {
 uint16_t VdlkinoBlock::digitalPins() {
     return this->vdlkino->digital;
 }
+
+uint16_t VdlkinoBlock::analogPins() {
+    return this->vdlkino->analog;
+}
