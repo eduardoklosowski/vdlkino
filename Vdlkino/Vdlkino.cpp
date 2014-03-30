@@ -97,3 +97,17 @@ uint16_t VdlkinoBlock::getPinMode() {
     }
     return this->vdlkino->pin_mode[this->pin];
 }
+
+uint16_t VdlkinoBlock::setDigital() {
+    if (!this->checkDigitalPin()) {
+        return 0x8003;
+    }
+    if (this->vdlkino->pin_mode[this->pin] != OUTPUT) {
+        if (this->vdlkino->pin_auto[this->pin]) {
+            this->vdlkino->pin_mode[this->pin] = OUTPUT;
+            pinMode(this->pin, OUTPUT);
+        }
+    }
+    digitalWrite(this->pin, this->value);
+    return 0x0000;
+}
