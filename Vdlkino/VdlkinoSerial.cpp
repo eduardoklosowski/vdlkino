@@ -33,3 +33,10 @@ void VdlkinoSerial::replay(uint16_t value) {
     this->serial->write(value >> 8);
     this->serial->write(value & 0xff);
 }
+
+void VdlkinoSerial::run() {
+    VdlkinoBlock block = this->getBlock();
+    if (block.valid) {
+        this->replay(block.run());
+    }
+}
