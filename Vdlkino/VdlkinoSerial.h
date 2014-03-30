@@ -12,6 +12,7 @@ class VdlkinoSerial: public Vdlkino {
 public:
     HardwareSerial *serial;
     VdlkinoSerial(uint8_t digital, uint8_t analog, HardwareSerial *serial);
+    virtual VdlkinoBlock getBlock();
 };
 
 #endif

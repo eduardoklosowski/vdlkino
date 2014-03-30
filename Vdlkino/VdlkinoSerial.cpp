@@ -12,3 +12,18 @@ VdlkinoSerial::VdlkinoSerial(uint8_t digital, uint8_t analog,
         : Vdlkino(digital, analog) {
     this->serial = serial;
 }
+
+VdlkinoBlock VdlkinoSerial::getBlock() {
+    VdlkinoBlock block = Vdlkino::getBlock();
+    char buffer[5];
+
+    if (this->serial->readBytes(buffer, 5) == 5) {
+        block.operh = buffer[0];
+        block.operl = buffer[1];
+        block.pin = buffer[2];
+        block.valueh = buffer[3];
+        block.valuel = buffer[4];
+        block.valid = 1;
+    }
+    return block;
+}
