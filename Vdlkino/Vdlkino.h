@@ -9,6 +9,8 @@
 #include <Arduino.h>
 #include <inttypes.h>
 
+#define VDLKINO_AUTO 3
+
 class Vdlkino;
 class VdlkinoBlock;
 
@@ -47,6 +49,7 @@ public:
     uint16_t run();
     uint16_t digitalPins();
     uint16_t analogPins();
+    uint16_t setPinMode();
 };
 
 #endif

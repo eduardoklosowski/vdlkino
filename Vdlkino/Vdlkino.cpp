@@ -53,3 +53,33 @@ uint16_t VdlkinoBlock::digitalPins() {
 uint16_t VdlkinoBlock::analogPins() {
     return this->vdlkino->analog;
 }
+
+uint16_t VdlkinoBlock::setPinMode() {
+    if (!this->checkDigitalPin()) {
+        return 0x8003;
+    }
+    switch (this->value) {
+        case INPUT:
+            this->vdlkino->pin_auto[this->pin] = 0;
+            this->vdlkino->pin_mode[this->pin] = INPUT;
+            pinMode(this->pin, INPUT);
+            return 0x0000;
+        case OUTPUT:
+            this->vdlkino->pin_auto[this->pin] = 0;
+            this->vdlkino->pin_mode[this->pin] = OUTPUT;
+            pinMode(this->pin, OUTPUT);
+            return 0x0000;
+        case INPUT_PULLUP:
+            this->vdlkino->pin_auto[this->pin] = 0;
+            this->vdlkino->pin_mode[this->pin] = INPUT_PULLUP;
+            pinMode(this->pin, INPUT_PULLUP);
+            return 0x0000;
+        case VDLKINO_AUTO:
+            this->vdlkino->pin_auto[this->pin] = 1;
+            this->vdlkino->pin_mode[this->pin] = INPUT;
+            pinMode(this->pin, INPUT);
+            return 0x0000;
+        default:
+            return 0x8004;
+    }
+}
