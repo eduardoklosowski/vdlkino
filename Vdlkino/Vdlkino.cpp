@@ -28,7 +28,12 @@ VdlkinoBlock::VdlkinoBlock(Vdlkino *vdlkino) {
 }
 
 uint16_t VdlkinoBlock::run() {
-    return 0x8002;
+    switch (this->oper) {
+        case 0x0000:
+            return this->digitalPins();
+        default:
+            return 0x8002;
+    }
 }
 
 uint16_t VdlkinoBlock::digitalPins() {
