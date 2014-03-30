@@ -42,6 +42,8 @@ public:
         };
     };
     VdlkinoBlock(Vdlkino *vdlkino);
+    boolean checkDigitalPin();
+    boolean checkAnalogPin();
     uint16_t run();
     uint16_t digitalPins();
     uint16_t analogPins();

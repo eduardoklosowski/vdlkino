@@ -27,6 +27,14 @@ VdlkinoBlock::VdlkinoBlock(Vdlkino *vdlkino) {
     this->valid = 0;
 }
 
+boolean VdlkinoBlock::checkDigitalPin() {
+    return this->pin < this->vdlkino->digital;
+}
+
+boolean VdlkinoBlock::checkAnalogPin() {
+    return this->pin < this->vdlkino->analog;
+}
+
 uint16_t VdlkinoBlock::run() {
     switch (this->oper) {
         case 0x0000:
