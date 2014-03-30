@@ -80,6 +80,13 @@ uint16_t VdlkinoBlock::run() {
         case 0x0007:
             return this->getAnalog();
         default:
+            VdlkinoOperCustom *custom = this->vdlkino->oper_custom;
+            while (custom != NULL) {
+                if (custom->oper == this->oper) {
+                    return custom->run(this);
+                }
+                custom = custom->next;
+            }
             return 0x8002;
     }
 }
