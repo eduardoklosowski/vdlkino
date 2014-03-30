@@ -128,3 +128,11 @@ uint16_t VdlkinoBlock::getDigital() {
     }
     return digitalRead(this->pin);
 }
+
+uint16_t VdlkinoBlock::setAnalog() {
+    if (!this->checkDigitalPin()) {
+        return 0x8003;
+    }
+    analogWrite(this->pin, this->value);
+    return 0x0000;
+}

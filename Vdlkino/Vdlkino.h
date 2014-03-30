@@ -53,6 +53,7 @@ public:
     uint16_t getPinMode();
     uint16_t setDigital();
     uint16_t getDigital();
+    uint16_t setAnalog();
 };
 
 #endif
