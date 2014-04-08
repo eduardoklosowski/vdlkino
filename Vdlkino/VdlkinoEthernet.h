@@ -14,6 +14,7 @@ class VdlkinoEthernet: public Vdlkino {
 public:
     EthernetServer *server;
     EthernetClient *client;
+    char access[256];
     VdlkinoEthernet(uint8_t digital, uint8_t analog, EthernetServer *server);
     virtual VdlkinoBlock getBlock();
     virtual void replay(uint16_t value);

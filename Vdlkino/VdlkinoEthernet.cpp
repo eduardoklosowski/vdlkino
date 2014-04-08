@@ -11,6 +11,7 @@ VdlkinoEthernet::VdlkinoEthernet(uint8_t digital, uint8_t analog,
                                  EthernetServer *server)
         : Vdlkino(digital, analog) {
     this->server = server;
+    strcpy(this->access, "*");
 }
 
 VdlkinoBlock VdlkinoEthernet::getBlock() {
@@ -84,6 +85,8 @@ void VdlkinoEthernet::replay(uint16_t value) {
             this->client->println("406 Not Acceptable");
         }
         this->client->println("Content-Type: text/plain");
+        this->client->print("Access-Control-Allow-Origin: ");
+        this->client->println(this->access);
         this->client->println("Connection: close");
         this->client->println();
         this->client->print(value);
