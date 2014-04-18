@@ -63,21 +63,21 @@ boolean VdlkinoBlock::checkAnalogPin() {
 
 uint16_t VdlkinoBlock::run() {
     switch (this->oper) {
-        case 0x0000:
+        case VDLKINO_OPER_DIGITALPINS:
             return this->digitalPins();
-        case 0x0001:
+        case VDLKINO_OPER_ANALOGPINS:
             return this->analogPins();
-        case 0x0002:
+        case VDLKINO_OPER_SETPINMODE:
             return this->setPinMode();
-        case 0x0003:
+        case VDLKINO_OPER_GETPINMODE:
             return this->getPinMode();
-        case 0x0004:
+        case VDLKINO_OPER_SETDIGITAL:
             return this->setDigital();
-        case 0x0005:
+        case VDLKINO_OPER_GETDIGITAL:
             return this->getDigital();
-        case 0x0006:
+        case VDLKINO_OPER_SETANALOG:
             return this->setAnalog();
-        case 0x0007:
+        case VDLKINO_OPER_GETANALOG:
             return this->getAnalog();
         default:
             VdlkinoOperCustom *custom = this->vdlkino->oper_custom;
