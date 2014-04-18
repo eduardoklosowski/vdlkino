@@ -87,7 +87,7 @@ uint16_t VdlkinoBlock::run() {
                 }
                 custom = custom->next;
             }
-            return 0x8002;
+            return VDLKINO_ERROR_OPER;
     }
 }
 
@@ -101,7 +101,7 @@ uint16_t VdlkinoBlock::analogPins() {
 
 uint16_t VdlkinoBlock::setPinMode() {
     if (!this->checkDigitalPin()) {
-        return 0x8003;
+        return VDLKINO_ERROR_PIN;
     }
     switch (this->value) {
         case INPUT:
@@ -125,13 +125,13 @@ uint16_t VdlkinoBlock::setPinMode() {
             pinMode(this->pin, INPUT);
             return 0x0000;
         default:
-            return 0x8004;
+            return VDLKINO_ERROR_VALUE;
     }
 }
 
 uint16_t VdlkinoBlock::getPinMode() {
     if (!this->checkDigitalPin()) {
-        return 0x8003;
+        return VDLKINO_ERROR_PIN;
     }
     if (this->vdlkino->pin_auto[this->pin]) {
         return VDLKINO_AUTO;
@@ -141,7 +141,7 @@ uint16_t VdlkinoBlock::getPinMode() {
 
 uint16_t VdlkinoBlock::setDigital() {
     if (!this->checkDigitalPin()) {
-        return 0x8003;
+        return VDLKINO_ERROR_PIN;
     }
     if (this->vdlkino->pin_mode[this->pin] != OUTPUT) {
         if (this->vdlkino->pin_auto[this->pin]) {
@@ -155,7 +155,7 @@ uint16_t VdlkinoBlock::setDigital() {
 
 uint16_t VdlkinoBlock::getDigital() {
     if (!this->checkDigitalPin()) {
-        return 0x8003;
+        return VDLKINO_ERROR_PIN;
     }
     if (this->vdlkino->pin_mode[this->pin] != INPUT) {
         if (this->vdlkino->pin_auto[this->pin]) {
@@ -168,7 +168,7 @@ uint16_t VdlkinoBlock::getDigital() {
 
 uint16_t VdlkinoBlock::setAnalog() {
     if (!this->checkDigitalPin()) {
-        return 0x8003;
+        return VDLKINO_ERROR_PIN;
     }
     analogWrite(this->pin, this->value);
     return 0x0000;
@@ -176,7 +176,7 @@ uint16_t VdlkinoBlock::setAnalog() {
 
 uint16_t VdlkinoBlock::getAnalog() {
     if (!this->checkAnalogPin()) {
-        return 0x8003;
+        return VDLKINO_ERROR_PIN;
     }
     return analogRead(this->pin);
 }

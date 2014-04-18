@@ -79,7 +79,7 @@ VdlkinoBlock VdlkinoEthernet::getBlock() {
 void VdlkinoEthernet::replay(uint16_t value) {
     if (this->client->connected()) {
         this->client->print("HTTP/1.1 ");
-        if (!(value & 0x8000)) {
+        if (!(value & VDLKINO_ERROR)) {
             this->client->println("200 OK");
         } else {
             this->client->println("406 Not Acceptable");
@@ -98,7 +98,7 @@ void VdlkinoEthernet::run() {
     if (block.valid) {
         this->replay(block.run());
     } else {
-        this->replay(0x8000);
+        this->replay(VDLKINO_ERROR_PROTOCOL);
     }
     this->client->stop();
 }

@@ -20,6 +20,12 @@
 #define VDLKINO_OPER_SETANALOG 0x0006
 #define VDLKINO_OPER_GETANALOG 0x0007
 
+#define VDLKINO_ERROR 0x8000
+#define VDLKINO_ERROR_PROTOCOL 0x8001
+#define VDLKINO_ERROR_OPER 0x8002
+#define VDLKINO_ERROR_PIN 0x8003
+#define VDLKINO_ERROR_VALUE 0x8004
+
 class Vdlkino;
 class VdlkinoBlock;
 class VdlkinoOperCustom;
