@@ -47,33 +47,43 @@ VdlkinoBlock VdlkinoEthernet::getBlock() {
                 }
             }
         }
-        if (url[0] == '/') {
-            url++;
-        }
-        url = strtok(url, "/");
-        if (strcmp(url, "raw") == 0) {
-            url = strtok(NULL, "/");
-            if (url != NULL) {
-                block.oper = atoi(url);
-            } else {
-                return block;
-            }
-            url = strtok(NULL, "/");
-            if (url != NULL) {
-                block.pin = atoi(url);
-            } else {
-                return block;
-            }
-            url = strtok(NULL, "/");
-            if (url != NULL) {
-                block.value = atoi(url);
-            } else {
-                return block;
-            }
-            block.valid = 1;
-        }
+        this->fromURL(&block, url);
     }
     return block;
+}
+
+void VdlkinoEthernet::fromURL(VdlkinoBlock *block, char *url) {
+    char buffer[256];
+    char *urlp = buffer;
+
+    strcpy(urlp, url);
+    if (urlp[0] == '/') {
+        urlp++;
+    }
+
+    urlp = strtok(urlp, "/");
+    if (strcmp(urlp, "raw") == 0) {
+        urlp = strtok(NULL, "/");
+        if (urlp != NULL) {
+            block->oper = atoi(urlp);
+        } else {
+            return;
+        }
+        urlp = strtok(NULL, "/");
+        if (urlp != NULL) {
+            block->pin = atoi(urlp);
+        } else {
+            return;
+        }
+        urlp = strtok(NULL, "/");
+        if (urlp != NULL) {
+            block->value = atoi(urlp);
+        } else {
+            return;
+        }
+        block->valid = 1;
+        return;
+    }
 }
 
 void VdlkinoEthernet::replay(uint16_t value) {
